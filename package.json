@@ -16,6 +16,6 @@
   "author": "hramadhaan20@gmail.com",
   "license": "MIT",
   "peerDependencies": {
-    "react-native": ">=0.55.4"
+    "react-native": ">=0.62.2"
   }
 }
