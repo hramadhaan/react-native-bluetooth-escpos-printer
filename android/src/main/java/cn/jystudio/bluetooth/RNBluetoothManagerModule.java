@@ -332,7 +332,10 @@ public class RNBluetoothManagerModule extends ReactContextBaseJavaModule
             case REQUEST_CONNECT_DEVICE: {
                 // When DeviceListActivity returns with a device to connect
                 if (resultCode == Activity.RESULT_OK) {
-                    // Get the device MAC address
+                    // Check bundle is not null
+                    Bundle rawData = data.getExtras();
+                    if (rawData != null) {
+                        // Get the device MAC address
                     String address = data.getExtras().getString(
                             EXTRA_DEVICE_ADDRESS);
                     // Get the BLuetoothDevice object
@@ -341,6 +344,7 @@ public class RNBluetoothManagerModule extends ReactContextBaseJavaModule
                                 .getRemoteDevice(address);
                         // Attempt to connect to the device
                         mService.connect(device);
+                    }
                     }
                 }
                 break;
